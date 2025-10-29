@@ -1,17 +1,12 @@
-const openMenu =  document.querySelector(".hamburger-icon");
-const closeMenu = document.querySelector(".hamburger-icon-close");
-const mobileMenu = document.querySelector(".mobile-menu-links");
+const openMenu = document.querySelector('.hamburger-icon');
+const closeMenu = document.querySelector('.hamburger-icon-close');
+const mobileMenu = document.querySelector('.mobile-menu-links');
 
-openMenu.addEventListener("click", () => {
-    // Open Menu Default Actions
-        openMenu.style.display = "none";
-        closeMenu.style.display = "block";
-        mobileMenu.style.display = "flex";
+function toggleMenu(isOpen) {
+    openMenu.style.display = isOpen ? 'none' : 'block';
+    closeMenu.style.display = isOpen ? 'block' : 'none';
+    mobileMenu.style.display = isOpen ? 'flex' : 'none';
+}
 
-    // Close Menu Event
-    closeMenu.addEventListener("click", () => {
-            openMenu.style.display = "block";
-            closeMenu.style.display = "none";
-            mobileMenu.style.display = "none";
-    });
-})
+openMenu.addEventListener('click', () => toggleMenu(true));
+closeMenu.addEventListener('click', () => toggleMenu(false));
